@@ -26,11 +26,9 @@ public class LoginTest extends BaseTest{
                 .validateSuccess("Learn Git and GitHub without any code!");
     }
 
-
     @Test
-    public void checkOurCommits(){
-        this.loginPage.login()
-                .openCommits();
+    public void checkCommitsTest(){
+        this.loginPage.login().openCommits();
     }
 
 }

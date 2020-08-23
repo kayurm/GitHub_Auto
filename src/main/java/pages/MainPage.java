@@ -23,9 +23,10 @@ public class MainPage extends BasePage{
         }
     }
 
-    public void validateSuccess(String successMessage){
+    public MainPage validateSuccess(String successMessage){
         Assert.assertTrue(this.driver.findElement(successHead).isDisplayed());
         Assert.assertEquals(successMessage, driver.findElement(successHead).getText());
+        return this;
     }
 
 }

@@ -16,10 +16,12 @@ public class LoginPage extends BasePage{
     }
 
     public MainPage login(){
+
         validateTrue(this.driver.findElement(usernameField));
         validateTrue(this.driver.findElement(passwordField));
         validateTrue(this.driver.findElement(signInButton));
 
+        LOG.debug("Negative login test...");
         this.driver.findElement(usernameField).sendKeys(System.getProperty("username"));
         this.driver.findElement(passwordField).sendKeys(System.getProperty("password"));
         this.driver.findElement(signInButton).click();
@@ -28,6 +30,7 @@ public class LoginPage extends BasePage{
 
     public LoginPage login(String username, String password){
 
+        LOG.debug("Positive login test...");
         this.driver.findElement(usernameField).sendKeys(username);
         this.driver.findElement(passwordField).sendKeys(password);
         this.driver.findElement(signInButton).click();
@@ -35,6 +38,7 @@ public class LoginPage extends BasePage{
     }
 
     public void validateError(String errorText){
+
         Assert.assertEquals(errorText, driver.findElement(errorMessage).getText());
     }
 

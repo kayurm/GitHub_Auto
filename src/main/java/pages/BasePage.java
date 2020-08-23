@@ -8,15 +8,15 @@ import org.apache.logging.log4j.Logger;
 
 public abstract class BasePage {
     protected WebDriver driver;
-    protected final Logger log = LogManager.getLogger(getClass().getName());
+    protected Logger LOG;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        this.LOG = LogManager.getLogger(getClass().getName());
     }
 
     protected void validateTrue(WebElement element) {
-        log.debug("Start test for enabled true for element: " + element);
+        LOG.debug("Validating element isEnabled() for: " + element.toString());
         Assert.assertTrue(element.isEnabled());
-        log.debug("Test finished");
     }
 }
